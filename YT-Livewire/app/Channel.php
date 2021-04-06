@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Channel extends Model
 {
 
@@ -22,5 +21,4 @@ class Channel extends Model
 
         return $this->belongsTo(User::class);
     }
-
 }
