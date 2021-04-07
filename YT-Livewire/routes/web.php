@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChannelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/test', function () {
+    return view('test');
+});
+
+Route::group(['middleware' => 'auth', 'namespace' => '\App\Http\Controllers'], function () {
+    Route::get('/channel/{channel}/edit', [ChannelController::class, 'edit'])->name('channel.edit');
+});
